@@ -16,7 +16,12 @@ function App() {
   const [courseResult, setCourseResult] = useState({description: 'No Course Selected'});
 
   const { Search } = Input;
-  const onSearch: SearchProps['onSearch'] = (value, _e, info) => setCourseInput(value);
+  const onSearch: SearchProps['onSearch'] = (value, _e, info) => {
+    console.log(value);
+    console.log(_e);
+    console.log(info);
+    setCourseInput(value);
+  }
 
   const rootURL = 'https://penncoursereview.com/api/base/current/courses';
 
@@ -43,12 +48,6 @@ function App() {
     console.log(courseInput);
     fetchCourse();
   }, [courseInput]);
-
-  const options = [
-    { value: 'Burns Bay Road' },
-    { value: 'Downing Street' },
-    { value: 'Wall Street' },
-  ];
 
   return (
     <div className="App">
