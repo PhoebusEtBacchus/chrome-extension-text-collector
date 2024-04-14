@@ -4,6 +4,7 @@ import { Snippet, SnippetList } from './components/SnippetList';
 import axios from 'axios'
 import { SnippetItem } from './components/SnippetItem';
 import { MiniSnippetItem } from './components/MiniSnippet'
+import { AutoComplete } from "antd";
 
 function App() {
   const [courseInput, setCourseInput] = useState('');
@@ -34,8 +35,24 @@ function App() {
     fetchCourse();
   }, [courseInput]);
 
+  const options = [
+    { value: 'Burns Bay Road' },
+    { value: 'Downing Street' },
+    { value: 'Wall Street' },
+  ];
+
   return (
     <div className="App">
+      
+      <AutoComplete
+        style={{ width: 200 }}
+        options={options}
+        placeholder="type course title"
+        filterOption={(inputValue, option) =>
+          option!.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+        }
+      />
+
       <h1>Penn Course Review Extension</h1>
       {/* Render the SnippetList component with the snippets and event handlers */}
       <MiniSnippetItem text={courseInput} />
