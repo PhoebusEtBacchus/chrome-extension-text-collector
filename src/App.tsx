@@ -52,7 +52,7 @@ function App() {
       
       <Search placeholder="Find Course..." onSearch={onSearch} enterButton />
 
-      <h1>Penn Course Review Extension</h1>
+      <h1>Penn Course Review</h1>
       {/* Render the SnippetList component with the snippets and event handlers */}
       <MiniSnippetItem text={courseInput} />
       <MiniSnippetItem text={courseResult.description} />
