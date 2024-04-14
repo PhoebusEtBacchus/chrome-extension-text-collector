@@ -4,11 +4,19 @@ import { Snippet, SnippetList } from './components/SnippetList';
 import axios from 'axios'
 import { SnippetItem } from './components/SnippetItem';
 import { MiniSnippetItem } from './components/MiniSnippet'
-import { AutoComplete } from "antd";
+import { Input, Space } from 'antd';
+import type { SearchProps } from 'antd/es/input/Search';
+
+
 
 function App() {
+
+
   const [courseInput, setCourseInput] = useState('');
   const [courseResult, setCourseResult] = useState({description: 'No Course Selected'});
+
+  const { Search } = Input;
+  const onSearch: SearchProps['onSearch'] = (value, _e, info) => setCourseInput(value);
 
   const rootURL = 'https://penncoursereview.com/api/base/current/courses';
 
@@ -44,14 +52,7 @@ function App() {
   return (
     <div className="App">
       
-      <AutoComplete
-        style={{ width: 200 }}
-        options={options}
-        placeholder="type course title"
-        filterOption={(inputValue, option) =>
-          option!.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
-        }
-      />
+      <Search placeholder="input search text" onSearch={onSearch} enterButton />
 
       <h1>Penn Course Review Extension</h1>
       {/* Render the SnippetList component with the snippets and event handlers */}
