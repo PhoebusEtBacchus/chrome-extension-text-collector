@@ -52,7 +52,7 @@ function App() {
   return (
     <div className="App">
       
-      <Search placeholder="input search text" onSearch={onSearch} enterButton />
+      <Search placeholder="Find Course..." onSearch={onSearch} enterButton />
 
       <h1>Penn Course Review Extension</h1>
       {/* Render the SnippetList component with the snippets and event handlers */}
