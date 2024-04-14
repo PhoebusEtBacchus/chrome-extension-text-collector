@@ -40,6 +40,7 @@ function App() {
         setCourseInput(result.inputcourse);
       }
     });
+    console.log(courseInput);
     fetchCourse();
   }, [courseInput]);
 
