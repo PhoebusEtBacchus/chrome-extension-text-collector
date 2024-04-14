@@ -17,6 +17,7 @@ function App() {
 
   const { Search } = Input;
   const onSearch: SearchProps['onSearch'] = (value, _e, info) => {
+    value = "e";
     console.log(value);
     console.log(_e);
     console.log(info);
