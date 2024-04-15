@@ -14,12 +14,12 @@ function App() {
 
   const [courseInput, setCourseInput] = useState('');
   const [courseResult, setCourseResult] = useState({description: 'No Course Selected'});
-
   const { Search } = Input;
-  const onSearch: SearchProps['onSearch'] = (value, _e, info) => {
-    console.log(info?.source, value);
-    setCourseInput(value);
-  }
+  
+  // const onSearch: SearchProps['onSearch'] = (value, _e, info) => {
+  //   console.log(info?.source, value);
+  //   setCourseInput(value);
+  // }
 
   const rootURL = 'https://penncoursereview.com/api/base/current/courses';
 
@@ -50,7 +50,7 @@ function App() {
   return (
     <div className="App">
       
-      <Search placeholder="Find Course..." onSearch={onSearch} enterButton />
+      <Search placeholder="Find Course..." onChange = {(e) => setCourseInput(e.target.value)} enterButton />
 
       <h1>Penn Course Review</h1>
       {/* Render the SnippetList component with the snippets and event handlers */}
