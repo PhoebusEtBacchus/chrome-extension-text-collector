@@ -57,6 +57,8 @@ function App() {
           } else {
             setCourseInput(e.target.value);
           }
+          console.log(courseInput);
+          fetchCourse();
         } 
         } enterButton />
 
