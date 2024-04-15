@@ -50,7 +50,15 @@ function App() {
   return (
     <div className="App">
       
-      <Search placeholder="Find Course..." onChange = {(e) => setCourseInput(e.target.value)} enterButton />
+      <Search placeholder="Find Course..." onChange = {(e) => 
+        {
+          if (e.target.value === undefined) {
+            setCourseResult({description : 'no course'});
+          } else {
+            setCourseInput(e.target.value);
+          }
+        } 
+        } enterButton />
 
       <h1>Penn Course Review</h1>
       {/* Render the SnippetList component with the snippets and event handlers */}
