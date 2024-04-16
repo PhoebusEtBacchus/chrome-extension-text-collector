@@ -52,7 +52,9 @@ function App() {
             // Log the response status from the background script
             console.log(response.status);
             }
-          );}
+          );
+          setCourseInput(e.target.value);
+        }
         } enterButton />
 
       <h1>Penn Course Review</h1>
