@@ -46,14 +46,12 @@ function App() {
     <div className="App">
       
       <Search placeholder="Find Course..." onChange = {(e) => {
-          chrome.runtime.sendMessage(
-            { action: 'saveSnippet', data: e.target.value },
-            (response) => {
-            // Log the response status from the background script
-            console.log(response.status);
-            }
-          );
-          setCourseInput(e.target.value);
+          const newinput = {
+            inputcourse : e.target.value
+          };
+          chrome.storage.local.set(newinput, () => {
+            console.log('Input course saved');
+          });
         }
         } enterButton />
 
