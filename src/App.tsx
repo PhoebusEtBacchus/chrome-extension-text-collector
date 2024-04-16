@@ -15,11 +15,6 @@ function App() {
   const [courseInput, setCourseInput] = useState('');
   const [courseResult, setCourseResult] = useState({description: 'No Course Selected'});
   const { Search } = Input;
-  
-  // const onSearch: SearchProps['onSearch'] = (value, _e, info) => {
-  //   console.log(info?.source, value);
-  //   setCourseInput(value);
-  // }
 
   const rootURL = 'https://penncoursereview.com/api/base/current/courses';
 
@@ -50,7 +45,14 @@ function App() {
   return (
     <div className="App">
       
-      <Search placeholder="Find Course..." onChange = {(e) => {setCourseInput(e.target.value)}
+      <Search placeholder="Find Course..." onChange = {(e) => {
+          chrome.runtime.sendMessage(
+            { action: 'saveSnippet', data: e.target.value },
+            (response) => {
+            // Log the response status from the background script
+            console.log(response.status);
+            }
+          );}
         } enterButton />
 
       <h1>Penn Course Review</h1>
