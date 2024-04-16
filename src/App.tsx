@@ -45,10 +45,10 @@ function App() {
   return (
     <div className="App">
       
-      <Search placeholder="Find Course..." onChange = {(e) => {
-          setCourseInput(e.target.value);
+      <Search placeholder="Find Course..." onSearch = {(e) => {
+          setCourseInput(e);
           const newinput = {
-            inputcourse : e.target.value
+            inputcourse : e
           };
           chrome.storage.local.set(newinput, () => {
             console.log('Input course saved');
