@@ -46,6 +46,7 @@ function App() {
     <div className="App">
       
       <Search placeholder="Find Course..." onChange = {(e) => {
+          setCourseInput(e.target.value);
           const newinput = {
             inputcourse : e.target.value
           };
